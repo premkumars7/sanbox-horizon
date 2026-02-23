@@ -1,0 +1,121 @@
+/* Pearson content-tile block - image and text side by side */
+.content-tile {
+  background: var(--background-light);
+  padding: var(--space-16) 0;
+}
+
+.content-tile-container {
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 var(--space-l);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (width >= 900px) {
+  .content-tile-container {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+    padding: 0 32px;
+  }
+}
+
+/* Image side */
+.content-tile-figure {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.content-tile-figure picture {
+  display: block;
+  width: 100%;
+}
+
+.content-tile-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 2 / 1;
+}
+
+/* Text side */
+.content-tile-figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.content-tile-title {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+.content-tile-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.content-tile-text p {
+  margin: 0 0 var(--space-4) 0;
+}
+
+.content-tile-text p:last-child {
+  margin-bottom: 0;
+}
+
+.content-tile-button {
+  margin-top: var(--space-4);
+}
+
+.content-tile-button .button {
+  display: inline-block;
+  padding: 14px 32px;
+  background: var(--accent-primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: var(--font-weight-semibold);
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.content-tile-button .button:hover {
+  background: var(--link-hover-color);
+  transform: translateY(-2px);
+}
+
+/* Image right variant */
+.content-tile.image-right .content-tile-container {
+  direction: rtl;
+}
+
+.content-tile.image-right .content-tile-figcaption {
+  direction: ltr;
+}
+
+/* Dark background variant */
+.content-tile.dark {
+  background: var(--background-brand);
+}
+
+.content-tile.dark .content-tile-title {
+  color: white;
+}
+
+.content-tile.dark .content-tile-text {
+  color: rgb(255 255 255 / 90%);
+}
+
+/* White background variant */
+.content-tile.white {
+  background: white;
+}
