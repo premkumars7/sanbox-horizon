@@ -307,7 +307,7 @@ header nav .nav-tools {
 header nav .nav-tools .default-content-wrapper {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
   flex-wrap: wrap;
 }
 
@@ -317,7 +317,7 @@ header nav .nav-tools ul {
   margin: 0;
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 12px;
 }
 
 header nav .nav-tools ul li {
@@ -327,19 +327,31 @@ header nav .nav-tools ul li {
 
 /* Buttons in tools */
 header nav .nav-tools a strong {
-  background: var(--action-color);
-  color: var(--dark-color);
-  padding: 10px 24px;
-  border-radius: 24px;
-  font-weight: 700;
-  font-size: 14px;
+  color: white;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 13px;
   text-decoration: none;
   display: inline-block;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
   white-space: nowrap;
+  background: transparent;
 }
 
 header nav .nav-tools a strong:hover {
+  opacity: 0.8;
+}
+
+/* Only first button (Contact Sales) is yellow */
+header nav .nav-tools p:first-child a strong,
+header nav .nav-tools .default-content-wrapper > p:first-child a strong {
+  background: var(--action-color);
+  color: var(--dark-color);
+}
+
+header nav .nav-tools p:first-child a strong:hover,
+header nav .nav-tools .default-content-wrapper > p:first-child a strong:hover {
   background: #feeb99;
 }
 
@@ -359,7 +371,7 @@ header nav .nav-tools a:not(:has(strong)):hover {
 /* Icons (cart and geo) */
 header nav .nav-tools p {
   margin: 0;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 1;
   cursor: pointer;
   transition: opacity 0.3s ease;
