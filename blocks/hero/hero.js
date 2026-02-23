@@ -26,10 +26,12 @@ export default async function decorate(block) {
     } else if (firstLink && firstLink.href && firstLink.href.match(/\.(mp4|webm|mov)$/i)) {
       // Link to video file - create video element
       const video = document.createElement('video');
-      video.setAttribute('autoplay', '');
-      video.setAttribute('loop', '');
-      video.setAttribute('muted', '');
-      video.setAttribute('playsinline', '');
+      video.setAttribute('autoplay', 'autoplay');
+      video.setAttribute('loop', 'loop');
+      video.setAttribute('muted', 'muted');
+      video.setAttribute('playsinline', 'playsinline');
+      video.setAttribute('crossorigin', 'anonymous');
+      video.muted = true; // Ensure muted for autoplay
 
       // Use associated image as poster if available
       if (firstPicture) {
@@ -40,6 +42,13 @@ export default async function decorate(block) {
       source.src = firstLink.href;
       source.type = `video/${firstLink.href.split('.').pop()}`;
       video.appendChild(source);
+
+      // Force play after load
+      video.addEventListener('loadeddata', () => {
+        video.play().catch(() => {
+          // Autoplay failed, video will show poster
+        });
+      });
 
       backgroundMedia = video;
       rows.shift();

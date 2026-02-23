@@ -6,11 +6,12 @@
 
 .hero {
   position: relative;
-  padding: 60px var(--space-l) 80px;
-  min-height: 400px;
+  padding: 0;
+  min-height: 500px;
   background: var(--background-brand);
   color: white;
   overflow: hidden;
+  width: 100%;
 }
 
 /* Background image or video */
@@ -66,13 +67,20 @@
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 1200px;
+  max-width: 1264px;
   margin: 0 auto;
+  padding: 80px var(--space-l) 100px;
   display: flex;
   flex-direction: column;
   gap: var(--space-m);
   align-items: flex-start;
   text-align: left;
+}
+
+@media (width >= 900px) {
+  .hero-content {
+    padding: 100px 32px 120px;
+  }
 }
 
 .hero h1 {
