@@ -20,15 +20,23 @@ At the top of the document, add:
 
 ### Step 3: Add Hero Block with Search
 
-Create a table with **class name: `hero hero-with-search`**
+**Important:** da.live is a visual editor - you DON'T write HTML!
 
-| Column 1 |
-|----------|
+Create a table and set the block name to: **`hero-with-search`**
+
+| Content |
+|---------|
 | **Where learning comes to life** |
 | Explore learning for every stage of life with Pearson. |
-| `<form class="hero-search"><input type="search" placeholder="What can I help you find?" aria-label="Search"><button type="submit" aria-label="Search"><span class="search-icon">🔍</span></button></form>` |
 
-**Important:** The HTML for the search form needs to be exactly as shown above.
+**That's it!** The search bar will be automatically added by the hero.js decorator when the page loads.
+
+### How It Works:
+1. You create simple content in da.live (heading + description)
+2. You name the block `hero-with-search`
+3. The JavaScript code (`/blocks/hero/hero.js`) detects this variant
+4. It automatically creates the search bar with the placeholder "What can I help you find?"
+5. Styling is automatically applied from `/blocks/hero/hero.css`
 
 ### Step 4: Add Customer-Centric Cards
 
@@ -41,38 +49,42 @@ Create a table with **class name: `cards cards-customer-centric`**
 
 **Styling Note:** Make sure each button link is styled with the `button primary` class. In da.live, you can format links as buttons.
 
-## 📐 Alternative Block Syntax (if tables don't work)
+## 📐 da.live Block Syntax
 
-If da.live doesn't support the complex table structure, use this simpler format:
+### How Blocks Work in da.live
 
-### Hero Block
+**You create visual content, NOT code:**
+
+1. **Create a table** in da.live
+2. **Set the block name** (e.g., "hero-with-search", "cards")
+3. **Add your content** (text, headings, links)
+4. **Preview** - AEM.live converts it to HTML automatically
+
+### Example: Hero Block in da.live
+
 ```
---- Hero (hero-with-search) ---
+Block Name: hero-with-search
 
-# Where learning comes to life
-
-Explore learning for every stage of life with Pearson.
-
-[HTML: Search form component]
+| Content Column |
+|---------------|
+| Where learning comes to life |
+| Explore learning for every stage of life with Pearson. |
 ```
 
-### Cards Block
+**Result:** AEM.live creates a `<div class="hero hero-with-search">` and your hero.js adds the search bar!
+
+### Example: Cards Block in da.live
+
 ```
---- Cards (cards-customer-centric) ---
+Block Name: cards-customer-centric
 
-## Looking to make a purchase?
-[Visit our eStore](/estore)
-
----
-
-## Looking to schedule an exam or test?
-[Book Now](/booking)
-
----
-
-## Looking to Enroll in Virtual School?
-[Enroll Now](/enroll)
+| Card 1 | Card 2 | Card 3 |
+|--------|--------|--------|
+| Looking to make a purchase? | Looking to schedule an exam or test? | Looking to Enroll in Virtual School? |
+| [Visit our eStore](/estore) | [Book Now](/booking) | [Enroll Now](/enroll) |
 ```
+
+**Result:** AEM.live creates cards, and your cards.css styles them purple with yellow buttons!
 
 ## 🎨 Block Classes Reference
 

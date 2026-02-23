@@ -49,6 +49,34 @@ export default async function decorate(block) {
     row.remove();
   });
 
+  // Add search bar for hero-with-search variant
+  if (block.classList.contains('hero-with-search')) {
+    const searchForm = document.createElement('form');
+    searchForm.className = 'hero-search';
+    searchForm.setAttribute('role', 'search');
+    searchForm.innerHTML = `
+      <input type="search" 
+             placeholder="What can I help you find?" 
+             aria-label="Search" 
+             name="q">
+      <button type="submit" aria-label="Search">
+        <span class="search-icon">🔍</span>
+      </button>
+    `;
+
+    // Add form submit handler
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const searchTerm = searchForm.querySelector('input').value;
+      if (searchTerm) {
+        // Redirect to search results page
+        window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+      }
+    });
+
+    contentWrapper.appendChild(searchForm);
+  }
+
   // Add content wrapper to block
   block.appendChild(contentWrapper);
 }
