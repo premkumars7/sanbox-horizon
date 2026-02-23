@@ -10,14 +10,41 @@
 export default async function decorate(block) {
   const rows = [...block.children];
 
-  // Check if first row has an image for background
-  let backgroundImage = null;
+  // Check if first row has an image or video for background
+  let backgroundMedia = null;
   const firstRow = rows[0];
   if (firstRow) {
     const firstPicture = firstRow.querySelector('picture');
-    if (firstPicture) {
-      backgroundImage = firstPicture;
-      rows.shift(); // Remove first row since it's the background
+    const firstVideo = firstRow.querySelector('video');
+    const firstLink = firstRow.querySelector('a');
+
+    if (firstVideo) {
+      // Video element exists
+      backgroundMedia = firstVideo;
+      rows.shift();
+      firstRow.remove();
+    } else if (firstPicture) {
+      // Check if picture links to a video file
+      if (firstLink && firstLink.href && firstLink.href.match(/\.(mp4|webm|mov)$/i)) {
+        // Convert link to video element
+        const video = document.createElement('video');
+        video.setAttribute('autoplay', '');
+        video.setAttribute('loop', '');
+        video.setAttribute('muted', '');
+        video.setAttribute('playsinline', '');
+        video.setAttribute('poster', firstPicture.querySelector('img')?.src || '');
+
+        const source = document.createElement('source');
+        source.src = firstLink.href;
+        source.type = `video/${firstLink.href.split('.').pop()}`;
+        video.appendChild(source);
+
+        backgroundMedia = video;
+      } else {
+        // Regular image
+        backgroundMedia = firstPicture;
+      }
+      rows.shift();
       firstRow.remove();
     }
   }
@@ -83,11 +110,12 @@ export default async function decorate(block) {
     contentWrapper.appendChild(searchForm);
   }
 
-  // Add background image if exists
-  if (backgroundImage) {
+  // Add background media (image or video) if exists
+  if (backgroundMedia) {
     const bgWrapper = document.createElement('div');
     bgWrapper.className = 'hero-background';
-    bgWrapper.appendChild(backgroundImage);
+    backgroundMedia.classList.add('hero-background-media');
+    bgWrapper.appendChild(backgroundMedia);
     block.appendChild(bgWrapper);
   }
 
