@@ -104,7 +104,7 @@ export default async function decorate(block) {
            placeholder="What can I help you find?" 
            aria-label="Search" 
            name="q">
-    <button type="submit" aria-label="Search">Search</button>
+    <button type="submit" aria-label="Search"></button>
   `;
 
   // Add form submit handler
