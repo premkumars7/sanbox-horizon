@@ -1,12 +1,13 @@
 /* Pearson-styled hero block */
 .hero-container .hero-wrapper {
-  max-width: unset;
-  padding: 0;
+  max-width: unset !important;
+  padding: 0 !important;
 }
 
 .hero {
   position: relative;
-  padding: 0;
+  padding: 0 !important;
+  margin: 0 !important;
   min-height: 500px;
   background: var(--background-brand);
   color: white;
