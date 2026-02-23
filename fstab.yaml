@@ -1,4 +1,3 @@
 mountpoints:
-  # Comment out da.live to use static files (index.html)
-  # /: https://da.live/edit/premkumars7/sanbox-horizon/main
+  /: https://da.live/edit/premkumars7/sanbox-horizon/main
 
