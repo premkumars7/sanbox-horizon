@@ -65,16 +65,29 @@ export default async function decorate(block) {
   const contentWrapper = document.createElement('div');
   contentWrapper.className = 'hero-content';
 
+  // Create cards container (for multi-column rows)
+  const cardsContainer = document.createElement('div');
+  cardsContainer.className = 'hero-cards';
+
   // Process each remaining row
   rows.forEach((row) => {
     const cells = [...row.children];
 
-    if (cells.length > 0) {
+    // Check if row has multiple columns (card layout)
+    if (cells.length > 1) {
+      // Multi-column row = cards
+      cells.forEach((cell) => {
+        const card = document.createElement('div');
+        card.className = 'hero-card';
+        card.innerHTML = cell.innerHTML;
+        cardsContainer.appendChild(card);
+      });
+    } else if (cells.length > 0) {
       const content = cells[0];
 
       // Check if row contains buttons/links
       const links = content.querySelectorAll('a');
-      if (links.length > 0) {
+      if (links.length > 0 && links.length <= 2) {
         const buttonContainer = document.createElement('div');
         buttonContainer.className = 'button-container';
 
@@ -131,4 +144,9 @@ export default async function decorate(block) {
 
   // Add content wrapper to block
   block.appendChild(contentWrapper);
+
+  // Add cards if any exist
+  if (cardsContainer.children.length > 0) {
+    block.appendChild(cardsContainer);
+  }
 }
