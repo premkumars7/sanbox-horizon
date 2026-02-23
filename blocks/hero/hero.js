@@ -93,34 +93,32 @@ export default async function decorate(block) {
     row.remove();
   });
 
-  // Add search bar for hero-with-search or with-search variant
-  // Supports both "Hero (with-search)" and "Hero (with search)" in da.live
-  if (block.classList.contains('hero-with-search') || block.classList.contains('with-search')) {
-    const searchForm = document.createElement('form');
-    searchForm.className = 'hero-search';
-    searchForm.setAttribute('role', 'search');
-    searchForm.innerHTML = `
-      <input type="search" 
-             placeholder="What can I help you find?" 
-             aria-label="Search" 
-             name="q">
-      <button type="submit" aria-label="Search">
-        <span class="search-icon">🔍</span>
-      </button>
-    `;
+  // Add search bar to hero
+  const searchDiv = document.createElement('div');
+  searchDiv.className = 'hero-search';
 
-    // Add form submit handler
-    searchForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const searchTerm = searchForm.querySelector('input').value;
-      if (searchTerm) {
-        // Redirect to search results page
-        window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
-      }
-    });
+  const searchForm = document.createElement('form');
+  searchForm.setAttribute('role', 'search');
+  searchForm.innerHTML = `
+    <input type="search" 
+           placeholder="What can I help you find?" 
+           aria-label="Search" 
+           name="q">
+    <button type="submit" aria-label="Search">Search</button>
+  `;
 
-    contentWrapper.appendChild(searchForm);
-  }
+  // Add form submit handler
+  searchForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchTerm = searchForm.querySelector('input').value;
+    if (searchTerm) {
+      // Redirect to search results page
+      window.location.href = `/search?q=${encodeURIComponent(searchTerm)}`;
+    }
+  });
+
+  searchDiv.appendChild(searchForm);
+  contentWrapper.appendChild(searchDiv);
 
   // Add background media (image or video) if exists
   if (backgroundMedia) {
