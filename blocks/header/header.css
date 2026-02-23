@@ -326,7 +326,7 @@ header nav .nav-tools ul li {
 }
 
 /* Buttons in tools */
-header nav .nav-tools a strong {
+header nav .nav-tools a {
   color: white;
   padding: 8px 20px;
   border-radius: 20px;
@@ -339,33 +339,21 @@ header nav .nav-tools a strong {
   background: transparent;
 }
 
-header nav .nav-tools a strong:hover {
+header nav .nav-tools a:hover {
   opacity: 0.8;
 }
 
-/* Only first button (Contact Sales) is yellow */
-header nav .nav-tools p:first-child a strong,
-header nav .nav-tools .default-content-wrapper > p:first-child a strong {
+/* Yellow button styling for .button.primary (Contact Sales when bold in da.live) */
+header nav .nav-tools a.button.primary {
   background: var(--action-color);
   color: var(--dark-color);
+  padding: 8px 20px;
+  border-radius: 20px;
 }
 
-header nav .nav-tools p:first-child a strong:hover,
-header nav .nav-tools .default-content-wrapper > p:first-child a strong:hover {
+header nav .nav-tools a.button.primary:hover {
   background: #feeb99;
-}
-
-/* Regular links in tools */
-header nav .nav-tools a:not(:has(strong)) {
-  color: white;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 14px;
-  transition: opacity 0.3s ease;
-}
-
-header nav .nav-tools a:not(:has(strong)):hover {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 /* Icons (cart and geo) */
