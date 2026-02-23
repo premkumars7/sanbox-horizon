@@ -23,27 +23,30 @@ export default async function decorate(block) {
       backgroundMedia = firstVideo;
       rows.shift();
       firstRow.remove();
-    } else if (firstPicture) {
-      // Check if picture links to a video file
-      if (firstLink && firstLink.href && firstLink.href.match(/\.(mp4|webm|mov)$/i)) {
-        // Convert link to video element
-        const video = document.createElement('video');
-        video.setAttribute('autoplay', '');
-        video.setAttribute('loop', '');
-        video.setAttribute('muted', '');
-        video.setAttribute('playsinline', '');
+    } else if (firstLink && firstLink.href && firstLink.href.match(/\.(mp4|webm|mov)$/i)) {
+      // Link to video file - create video element
+      const video = document.createElement('video');
+      video.setAttribute('autoplay', '');
+      video.setAttribute('loop', '');
+      video.setAttribute('muted', '');
+      video.setAttribute('playsinline', '');
+
+      // Use associated image as poster if available
+      if (firstPicture) {
         video.setAttribute('poster', firstPicture.querySelector('img')?.src || '');
-
-        const source = document.createElement('source');
-        source.src = firstLink.href;
-        source.type = `video/${firstLink.href.split('.').pop()}`;
-        video.appendChild(source);
-
-        backgroundMedia = video;
-      } else {
-        // Regular image
-        backgroundMedia = firstPicture;
       }
+
+      const source = document.createElement('source');
+      source.src = firstLink.href;
+      source.type = `video/${firstLink.href.split('.').pop()}`;
+      video.appendChild(source);
+
+      backgroundMedia = video;
+      rows.shift();
+      firstRow.remove();
+    } else if (firstPicture) {
+      // Regular image
+      backgroundMedia = firstPicture;
       rows.shift();
       firstRow.remove();
     }
