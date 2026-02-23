@@ -25,8 +25,11 @@ export default function decorate(block) {
 
   if (imageRow) {
     const picture = imageRow.querySelector('picture');
+    const img = imageRow.querySelector('img');
     if (picture) {
       figure.appendChild(picture);
+    } else if (img) {
+      figure.appendChild(img);
     }
   }
 
