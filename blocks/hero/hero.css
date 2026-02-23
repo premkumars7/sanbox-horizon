@@ -68,7 +68,7 @@
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 1264px;
+  width: 100%;
   margin: 0 auto;
   padding: 80px var(--space-l) 100px;
   display: flex;
@@ -230,6 +230,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: var(--space-6);
+  width: 100%;
   max-width: 1264px;
   margin: 0 auto;
   padding: 0 var(--space-l) var(--space-16);
