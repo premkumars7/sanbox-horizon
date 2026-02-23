@@ -26,10 +26,18 @@ export default function decorate(block) {
   if (imageRow) {
     const picture = imageRow.querySelector('picture');
     const img = imageRow.querySelector('img');
+    const link = imageRow.querySelector('a');
+
     if (picture) {
       figure.appendChild(picture);
     } else if (img) {
       figure.appendChild(img);
+    } else if (link && link.href.match(/\.(jpg|jpeg|png|gif|webp|avif|svg)$/i)) {
+      // Create img from link if it's an image file
+      const newImg = document.createElement('img');
+      newImg.src = link.href;
+      newImg.alt = imageRow.textContent.replace(/!\[|\]\(.*\)/g, '').trim();
+      figure.appendChild(newImg);
     }
   }
 
