@@ -6,8 +6,8 @@
 
 .hero {
   position: relative;
-  padding: var(--space-xxl) var(--space-m);
-  min-height: 500px;
+  padding: 60px var(--space-l) 80px;
+  min-height: 400px;
   background: var(--background-brand);
   color: white;
   overflow: hidden;
@@ -47,14 +47,14 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: var(--space-l);
-  align-items: center;
-  text-align: center;
+  gap: var(--space-m);
+  align-items: flex-start;
+  text-align: left;
 }
 
 .hero h1 {
   color: white;
-  font-size: var(--heading-font-size-xxl);
+  font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: var(--font-weight-bold);
   line-height: 1.2;
   margin: 0;
@@ -62,7 +62,7 @@
 
 .hero p {
   color: rgb(255 255 255 / 95%);
-  font-size: var(--heading-font-size-xs);
+  font-size: clamp(1.1rem, 2vw, 1.25rem);
   font-weight: var(--font-weight-normal);
   line-height: 1.6;
   max-width: 700px;
@@ -148,43 +148,45 @@
   z-index: 2;
   width: 100%;
   max-width: 600px;
-  margin: var(--space-l) auto 0;
+  margin: var(--space-m) 0 0 0;
   display: flex;
-  gap: 0;
-  background: white;
-  border-radius: var(--border-radius-pill);
-  box-shadow: 0 8px 24px rgb(0 0 0 / 20%);
-  overflow: hidden;
+  gap: var(--space-xs);
+  align-self: flex-start;
 }
 
 .hero-search input[type="search"] {
   flex: 1;
   padding: var(--space-m) var(--space-l);
   font-size: 1rem;
-  border: none;
-  background: white;
-  color: var(--dark-color);
+  border: 2px solid rgb(255 255 255 / 30%);
+  background: rgb(255 255 255 / 15%);
+  backdrop-filter: blur(10px);
+  color: white;
   outline: none;
+  border-radius: 4px;
 }
 
 .hero-search input[type="search"]::placeholder {
-  color: #666;
+  color: rgb(255 255 255 / 70%);
 }
 
 .hero-search button {
-  padding: var(--space-m) var(--space-l);
-  background: var(--accent-primary);
+  padding: var(--space-m) var(--space-xl);
+  background: var(--action-color);
   border: none;
-  color: white;
+  color: var(--dark-color);
+  font-weight: var(--font-weight-bold);
   cursor: pointer;
   transition: background 0.3s ease;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 4px;
+  white-space: nowrap;
 }
 
 .hero-search button:hover {
-  background: var(--background-brand);
+  background: #feeb99;
 }
 
 .hero-search .search-icon {
@@ -192,8 +194,8 @@
 }
 
 .hero-with-search > div {
-  text-align: center;
-  align-items: center;
+  text-align: left;
+  align-items: flex-start;
 }
 
 @media (width >= 900px) {
