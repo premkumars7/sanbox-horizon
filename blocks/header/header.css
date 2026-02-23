@@ -337,23 +337,23 @@ header nav .nav-tools a {
   transition: all 0.2s ease;
   white-space: nowrap;
   background: transparent;
+  border: 1px solid white;
 }
 
 header nav .nav-tools a:hover {
-  opacity: 0.8;
+  background: rgb(255 255 255 / 10%);
 }
 
 /* Yellow button styling for .button.primary (Contact Sales when bold in da.live) */
 header nav .nav-tools a.button.primary {
   background: var(--action-color);
   color: var(--dark-color);
-  padding: 8px 20px;
-  border-radius: 20px;
+  border: 1px solid var(--action-color);
 }
 
 header nav .nav-tools a.button.primary:hover {
   background: #feeb99;
-  opacity: 1;
+  border-color: #feeb99;
 }
 
 /* Icons (cart and geo) */
