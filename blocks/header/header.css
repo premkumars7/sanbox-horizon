@@ -304,6 +304,13 @@ header nav .nav-tools {
   gap: 16px;
 }
 
+header nav .nav-tools .default-content-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 header nav .nav-tools ul {
   list-style: none;
   padding: 0;
