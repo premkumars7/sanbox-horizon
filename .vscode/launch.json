@@ -1,0 +1,112 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Attach to Chrome",
+      "type": "chrome",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}",
+      "urlFilter": "http://localhost:3000*;http://*.pearson.com:3000*",
+      "sourceMapPathOverrides": {
+        "webpack://_N_E/./*": "${workspaceFolder}/*",
+        "webpack://_N_E/*": "${workspaceFolder}/*",
+        "webpack:///*": "${workspaceFolder}/*",
+        "*/./~/*": "${workspaceFolder}/node_modules/*",
+        "/*": "${workspaceFolder}/*"
+      },
+      "sourceMaps": true
+    },
+    {
+      "name": "Git pull + submodules + install",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "git pull && git submodule update --init --remote --recursive && npm install"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Create .env.local (choose env)",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "${workspaceFolder}/pmc-react-shared/scripts/init_env.sh --${input:env}"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}"
+    },
+
+    {
+      "name": "1) Git pull (all) + env.local",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "/bin/zsh",
+      "runtimeArgs": [
+        "-lc",
+        "git pull && git submodule update --init --remote --recursive && npm install && ${workspaceFolder}/pmc-react-shared/scripts/init_env.sh --${input:env}"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "name": "Next.js: debug server only (launch)",
+      "type": "node",
+      "request": "launch",
+      "program": "${workspaceFolder}/node_modules/.bin/next",
+      "args": ["dev"],
+      "runtimeArgs": ["--inspect=9229"],
+      "console": "integratedTerminal",
+      "skipFiles": ["<node_internals>/**"],
+      "sourceMaps": true,
+      "resolveSourceMapLocations": ["${workspaceFolder}/**", "!**/node_modules/**"],
+      "envFile": "${workspaceFolder}/.env.local"
+    },
+    {
+      "name": "Next.js: debug client-side (launch)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://test.pearson.com:3000/en-us/subject-catalog/p/campbell-biology-in-focus/P200000011549/9780138272579",
+      "urlFilter": "http://*.pearson.com:3000*",
+      "webRoot": "${workspaceFolder}",
+      "sourceMapPathOverrides": {
+        "webpack://_N_E/./*": "${workspaceFolder}/*",
+        "webpack://_N_E/*": "${workspaceFolder}/*",
+        "webpack:///*": "${workspaceFolder}/*",
+        "*/./~/*": "${workspaceFolder}/node_modules/*",
+        "/*": "${workspaceFolder}/*"
+      },
+      "runtimeArgs": [
+        "--disable-web-security",
+        "--user-data-dir=/tmp/vscode-chrome-debug-profile"
+      ],
+      "sourceMaps": true
+    },
+
+
+  ],
+  "inputs": [
+    {
+      "id": "env",
+      "type": "pickString",
+      "description": "Choose environment for init_env.sh",
+      "options": ["dev2", "stg2", "stg4", "ppe", "prf", "prd"],
+      "default": "dev2"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "2) Next.js: debug full stack (launch)",
+      "configurations": ["Next.js: debug server only (launch)", "Next.js: debug client-side (launch)"]
+    }
+  ]
+}
+

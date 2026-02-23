@@ -1,9 +1,70 @@
-/* header and nav layout */
+/* Pearson-styled header and nav layout */
+
+/* Inline header for homepage (non-block) */
+header > div {
+  background-color: var(--background-brand);
+  padding: var(--space-m) var(--space-l);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-l);
+  flex-wrap: wrap;
+}
+
+header > div > div {
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+  flex-wrap: wrap;
+}
+
+header > div p {
+  margin: 0;
+}
+
+header > div a {
+  color: white;
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+  transition: color 0.3s ease;
+}
+
+header > div a:hover {
+  color: var(--accent-light);
+}
+
+header > div a.button {
+  padding: var(--space-xs) var(--space-m);
+  border-radius: var(--border-radius-lg);
+  font-size: 0.9rem;
+}
+
+header > div a.button.primary {
+  background: var(--action-color);
+  color: var(--dark-color);
+  font-weight: var(--font-weight-bold);
+}
+
+header > div a.button.primary:hover {
+  background: #feeb99;
+}
+
+header > div a.button.secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
+header > div a.button.secondary:hover {
+  background: rgb(255 255 255 / 10%);
+}
+
 header .nav-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--background-brand);
   width: 100%;
   z-index: 2;
   position: fixed;
+  box-shadow: var(--shadow);
 }
 
 header nav {
@@ -13,12 +74,13 @@ header nav {
     'hamburger brand tools' var(--nav-height)
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
-  gap: 0 24px;
+  gap: 0 var(--space-m);
   margin: auto;
   max-width: 1248px;
   height: var(--nav-height);
-  padding: 0 24px;
+  padding: 0 var(--space-m);
   font-family: var(--body-font-family);
+  color: white;
 }
 
 header nav[aria-expanded='true'] {
@@ -72,11 +134,12 @@ header nav .nav-hamburger button {
   border: 0;
   border-radius: 0;
   padding: 0;
-  background-color: var(--background-color);
-  color: inherit;
+  background-color: transparent;
+  color: white;
   overflow: initial;
   text-overflow: initial;
   white-space: initial;
+  cursor: pointer;
 }
 
 header nav .nav-hamburger-icon,

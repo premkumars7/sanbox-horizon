@@ -1,20 +1,51 @@
+/* Pearson-styled footer */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  background-color: var(--background-brand);
+  color: white;
+  font-size: var(--body-font-size-s);
 }
 
 footer .footer > div {
   margin: auto;
   max-width: 1200px;
-  padding: 40px 24px 24px;
+  padding: var(--space-xxl) var(--space-m) var(--space-l);
 }
 
 footer .footer p {
   margin: 0;
+  color: rgb(255 255 255 / 90%);
+  line-height: 1.6;
+}
+
+footer .footer a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer .footer a:hover {
+  color: var(--accent-secondary);
+}
+
+footer .footer h3 {
+  color: white;
+  font-size: var(--heading-font-size-xs);
+  font-weight: var(--font-weight-semibold);
+  margin: 0 0 var(--space-m) 0;
+}
+
+footer .footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+footer .footer li {
+  margin-bottom: var(--space-s);
 }
 
 @media (width >= 900px) {
   footer .footer > div {
-    padding: 40px 32px 24px;
+    padding: var(--space-xxl) var(--space-xl) var(--space-l);
   }
 }

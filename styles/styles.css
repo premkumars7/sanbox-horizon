@@ -10,63 +10,94 @@
  * governing permissions and limitations under the License.
  */
 
+/* Pearson brand typography - using system fonts as fallback */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
 :root {
-  /* colors */
-  --background-color: white;
-  --light-color: #f8f8f8;
-  --dark-color: #505050;
-  --text-color: #131313;
-  --link-color: #3b63fb;
-  --link-hover-color: #1d3ecf;
+  /* Pearson Brand Colors */
+  --background-color: #fff;
+  --background-light: #f9f9fc;
+  --background-brand: #0d004d;
+  --background-brand-light: #edecf6;
+  --light-color: #f0eff5;
+  --dark-color: #0d004d;
+
+  /* Text Colors */
+  --text-color: #060609;
+  --text-secondary: #333;
+  --text-tertiary: #5a5668;
+  --text-brand: #512eab;
+
+  /* Interactive Colors */
+  --link-color: #512eab;
+  --link-hover-color: #290066;
+  --link-active-color: #290066;
+  --action-color: #ffce00;
+  --action-hover-color: #0d004d;
+
+  /* Accent Colors */
+  --accent-primary: #512eab;
+  --accent-secondary: #ffce00;
+  --accent-tertiary: #56e2e1;
+
+  /* Border Colors */
+  --border-color: #c1bfff;
+  --border-dark: #0d004d;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --body-font-family: 'Plus Jakarta Sans', 'Helvetica', 'Verdana', sans-serif;
+  --heading-font-family: 'Plus Jakarta Sans', 'Helvetica', 'Verdana', sans-serif;
 
   /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 19px;
-  --body-font-size-xs: 17px;
+  --body-font-size-m: 1rem;
+  --body-font-size-s: 0.875rem;
+  --body-font-size-xs: 0.75rem;
 
   /* heading sizes */
-  --heading-font-size-xxl: 55px;
-  --heading-font-size-xl: 44px;
-  --heading-font-size-l: 34px;
-  --heading-font-size-m: 27px;
-  --heading-font-size-s: 24px;
-  --heading-font-size-xs: 22px;
+  --heading-font-size-xxl: clamp(3.125rem, 4.35vw + 1rem, 4rem);
+  --heading-font-size-xl: clamp(2.5rem, 3.25vw + 1rem, 3.125rem);
+  --heading-font-size-l: clamp(2.125rem, 2.35vw + 1rem, 2.5rem);
+  --heading-font-size-m: clamp(1.75rem, 1.5vw + 1rem, 1.875rem);
+  --heading-font-size-s: 1.5rem;
+  --heading-font-size-xs: clamp(1.25rem, 0.6vw + 1rem, 1.375rem);
+
+  /* Font weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Spacing */
+  --space-unit: 4px;
+  --space-xs: 8px;
+  --space-s: 16px;
+  --space-m: 24px;
+  --space-l: 32px;
+  --space-xl: 48px;
+  --space-xxl: 64px;
+
+  /* Border radius */
+  --border-radius-sm: 0.25rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+
+  /* Shadows */
+  --shadow: 0px 2px 4px rgb(0 0 0 / 25%);
+  --shadow-blur: 0px 0px 20px rgb(0 0 0 / 15%);
 
   /* nav height */
   --nav-height: 64px;
 }
 
-/* fallback fonts */
-@font-face {
-  font-family: roboto-condensed-fallback;
-  size-adjust: 88.82%;
-  src: local('Arial');
-}
-
-@font-face {
-  font-family: roboto-fallback;
-  size-adjust: 99.529%;
-  src: local('Arial');
-}
-
 @media (width >= 900px) {
   :root {
-    /* body sizes */
-    --body-font-size-m: 18px;
-    --body-font-size-s: 16px;
-    --body-font-size-xs: 14px;
-
-    /* heading sizes */
-    --heading-font-size-xxl: 45px;
-    --heading-font-size-xl: 36px;
-    --heading-font-size-l: 28px;
-    --heading-font-size-m: 22px;
-    --heading-font-size-s: 20px;
-    --heading-font-size-xs: 18px;
+    /* Desktop spacing adjustments */
+    --space-m: 32px;
+    --space-l: 48px;
+    --space-xl: 64px;
+    --space-xxl: 96px;
   }
 }
 

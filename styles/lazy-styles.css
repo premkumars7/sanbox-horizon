@@ -1,1 +1,103 @@
-/* add global styles that can be loaded post LCP here */
+/* Pearson brand global styles loaded post-LCP */
+
+/* Section styling */
+main .section {
+  padding: var(--space-xxl) var(--space-m);
+}
+
+main .section.light {
+  background-color: var(--background-light);
+}
+
+main .section.dark {
+  background-color: var(--background-brand);
+  color: white;
+}
+
+main .section.dark h2,
+main .section.dark h3 {
+  color: white;
+}
+
+main .section.dark p {
+  color: rgb(255 255 255 / 90%);
+}
+
+main .section > div {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Button styles */
+a.button,
+button.button {
+  display: inline-block;
+  padding: var(--space-s) var(--space-l);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: var(--border-radius-lg);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: none;
+  font-family: var(--body-font-family);
+}
+
+a.button.primary,
+button.button.primary {
+  background: var(--accent-primary);
+  color: white;
+}
+
+a.button.primary:hover,
+button.button.primary:hover {
+  background: var(--link-hover-color);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+a.button.secondary,
+button.button.secondary {
+  background: transparent;
+  color: var(--accent-primary);
+  border: 2px solid var(--accent-primary);
+}
+
+a.button.secondary:hover,
+button.button.secondary:hover {
+  background: var(--accent-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+a.button.action,
+button.button.action {
+  background: var(--action-color);
+  color: var(--dark-color);
+}
+
+a.button.action:hover,
+button.button.action:hover {
+  background: #feeb99;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+
+.margin-top {
+  margin-top: var(--space-l);
+}
+
+.margin-bottom {
+  margin-bottom: var(--space-l);
+}
+
+@media (width >= 900px) {
+  main .section {
+    padding: var(--space-xxl) var(--space-xl);
+  }
+}
