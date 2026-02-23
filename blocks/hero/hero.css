@@ -1,7 +1,13 @@
 /* Pearson-styled hero block */
+main > .hero-container {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .hero-container .hero-wrapper {
   max-width: unset !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .hero {
@@ -12,7 +18,9 @@
   background: var(--background-brand);
   color: white;
   overflow: hidden;
-  width: 100%;
+  width: 100vw;
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
 }
 
 /* Background image or video */
@@ -70,7 +78,7 @@
   z-index: 1;
   width: 100%;
   margin: 0 auto;
-  padding: 80px var(--space-l) 100px;
+  padding: 60px var(--space-l) 100px;
   display: flex;
   flex-direction: column;
   gap: var(--space-6);
@@ -80,7 +88,7 @@
 
 @media (width >= 900px) {
   .hero-content {
-    padding: 100px 32px 120px;
+    padding: 80px 32px 120px;
   }
 }
 
