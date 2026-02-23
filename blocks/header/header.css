@@ -201,6 +201,85 @@ header nav[aria-expanded='true'] .nav-hamburger-icon::after {
     display: none;
     visibility: hidden;
   }
+
+  header nav .nav-sections {
+    display: flex;
+    visibility: visible;
+    align-items: center;
+    gap: 32px;
+  }
+
+  header nav .nav-sections ul {
+    display: flex;
+    gap: 32px;
+    margin: 0;
+    align-items: center;
+  }
+
+  header nav .nav-sections > ul > li {
+    position: relative;
+    padding: 0;
+  }
+
+  header nav .nav-sections > ul > li > a,
+  header nav .nav-sections > ul > li > strong {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 0;
+    display: block;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+  }
+
+  header nav .nav-sections > ul > li > strong {
+    font-weight: 700;
+  }
+
+  /* Dropdown menus */
+  header nav .nav-sections > ul > li > ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 15%);
+    border-radius: 8px;
+    min-width: 240px;
+    padding: 16px 0;
+    margin-top: 8px;
+    flex-direction: column;
+    gap: 0;
+    z-index: 100;
+  }
+
+  header nav .nav-sections > ul > li[aria-expanded='true'] > ul {
+    display: flex;
+  }
+
+  header nav .nav-sections > ul > li > ul > li {
+    padding: 0;
+  }
+
+  header nav .nav-sections > ul > li > ul > li > a {
+    color: var(--dark-color);
+    padding: 12px 24px;
+    display: block;
+    transition: background-color 0.2s ease;
+    font-weight: 400;
+  }
+
+  header nav .nav-sections > ul > li:hover > a,
+  header nav .nav-sections > ul > li:hover > strong {
+    opacity: 0.8;
+  }
+
+  header nav .nav-sections > ul > li > ul > li > a:hover {
+    background-color: #f5f5f5;
+  }
+
+
 }
 
 /* brand */
@@ -215,6 +294,72 @@ header .nav-brand {
 header nav .nav-brand img {
   width: 128px;
   height: auto;
+}
+
+/* tools */
+header nav .nav-tools {
+  grid-area: tools;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header nav .nav-tools ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+header nav .nav-tools ul li {
+  margin: 0;
+  padding: 0;
+}
+
+/* Buttons in tools */
+header nav .nav-tools a strong {
+  background: var(--action-color);
+  color: var(--dark-color);
+  padding: 10px 24px;
+  border-radius: 24px;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+header nav .nav-tools a strong:hover {
+  background: #feeb99;
+}
+
+/* Regular links in tools */
+header nav .nav-tools a:not(:has(strong)) {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  transition: opacity 0.3s ease;
+}
+
+header nav .nav-tools a:not(:has(strong)):hover {
+  opacity: 0.8;
+}
+
+/* Icons (cart and geo) */
+header nav .nav-tools p {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+header nav .nav-tools p:hover {
+  opacity: 0.8;
 }
 
 /* sections */
@@ -328,9 +473,4 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections .default-content-wrapper > ul > li > ul > li {
     padding: 8px 0;
   }
-}
-
-/* tools */
-header nav .nav-tools {
-  grid-area: tools;
 }
