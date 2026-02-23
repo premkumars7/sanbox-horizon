@@ -49,8 +49,9 @@ export default async function decorate(block) {
     row.remove();
   });
 
-  // Add search bar for hero-with-search variant
-  if (block.classList.contains('hero-with-search')) {
+  // Add search bar for hero-with-search or with-search variant
+  // Supports both "Hero (with-search)" and "Hero (with search)" in da.live
+  if (block.classList.contains('hero-with-search') || block.classList.contains('with-search')) {
     const searchForm = document.createElement('form');
     searchForm.className = 'hero-search';
     searchForm.setAttribute('role', 'search');
