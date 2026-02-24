@@ -1,4 +1,8 @@
-/* Pearson feature-tile block - full-width 50/50 layout with purple background */
+/* Pearson feature-tile block - full-width 50/50 layout 
+ * All values extracted from https://www.pearson.com/en-gb.html via Chrome DevTools MCP inspection
+ * Background: #c1bfff (rgb(193, 191, 255))
+ * Typography and spacing match exact Pearson implementation
+ */
 
 /* Override EDS section defaults for full-width */
 main > .section.feature-tile-container {
@@ -15,8 +19,8 @@ main > .section.feature-tile-container {
 
 /* Main block styling */
 .feature-tile {
-  background: linear-gradient(135deg, rgb(169 166 214 / 90%) 0%, rgb(139 135 204 / 85%) 100%);
-  padding: var(--space-20) 0;
+  background-color: #c1bfff; /* Exact color from Pearson site via MCP inspection */
+  padding: 32px 0; /* Exact value from Pearson */
   min-height: 45vh;
   display: flex;
   align-items: center;
@@ -25,14 +29,14 @@ main > .section.feature-tile-container {
 
 .feature-tile-container {
   width: 100%;
-  max-width: 1264px;
+  max-width: 1440px; /* Exact from Pearson: 1440px */
   margin: 0 auto;
-  padding: 0 var(--space-l);
+  padding: 0 64px; /* Exact from Pearson */
 }
 
 @media (width >= 900px) {
   .feature-tile-container {
-    padding: 0 32px;
+    padding: 0 64px; /* Keep 64px from exact Pearson value */
   }
 }
 
@@ -40,14 +44,14 @@ main > .section.feature-tile-container {
 .feature-tile-figure {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-12);
+  gap: 32px;
   align-items: center;
 }
 
 @media (width >= 900px) {
   .feature-tile-figure {
     grid-template-columns: 1fr 1fr;
-    gap: var(--space-16);
+    gap: 32px; /* Pearson uses 16px padding each side = 32px gap */
   }
 }
 
@@ -71,39 +75,39 @@ main > .section.feature-tile-container {
   display: flex;
   flex-direction: column;
   gap: var(--space-5);
-  padding: var(--space-8);
+  padding: 60px 0; /* Exact from Pearson */
 }
 
 @media (width >= 900px) {
   .feature-tile-figcaption {
-    padding: var(--space-12);
+    padding: 60px 0; /* Keep exact Pearson value */
   }
 }
 
 /* Eyebrow - small uppercase text */
 .feature-tile-eyebrow {
-  font-size: 0.875rem;
-  font-weight: var(--font-weight-semibold);
+  font-size: 12px; /* Exact from Pearson */
+  font-weight: 800; /* Exact from Pearson */
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--dark-color);
+  letter-spacing: 0.96px; /* Exact from Pearson */
+  color: var(--brand-01);
   margin: 0;
 }
 
 /* Title */
 .feature-tile-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: var(--font-weight-bold);
-  line-height: 1.2;
-  color: var(--dark-color);
+  font-size: 40px; /* Exact from Pearson */
+  font-weight: 500; /* Exact from Pearson */
+  line-height: 48px; /* Exact from Pearson */
+  color: var(--brand-01);
   margin: 0;
 }
 
 /* Description text */
 .feature-tile-text {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-color);
+  font-size: 16px; /* Exact from Pearson */
+  line-height: 25.6px; /* Exact from Pearson */
+  color: var(--brand-01);
 }
 
 .feature-tile-text p {
@@ -114,24 +118,23 @@ main > .section.feature-tile-container {
   margin-bottom: 0;
 }
 
-/* CTA Button - Yellow pill */
+/* CTA Button */
 .feature-tile-cta {
   display: inline-block;
-  padding: 12px 32px;
-  background: var(--action-color);
-  color: var(--dark-color);
+  padding: 6px 30px; /* Exact from Pearson */
+  background: transparent; /* Pearson uses transparent with border/underline */
+  color: var(--brand-01);
   text-decoration: none;
-  border-radius: 999px;
-  font-weight: var(--font-weight-semibold);
-  font-size: 1rem;
-  transition: background 0.3s ease, transform 0.2s ease;
+  border-radius: 0; /* Pearson doesn't use pill shape */
+  font-weight: 600; /* Exact from Pearson */
+  font-size: 16px; /* Exact from Pearson */
+  transition: background 0.3s ease;
   margin-top: var(--space-4);
   align-self: flex-start;
 }
 
 .feature-tile-cta:hover {
-  background: #f2c200;
-  transform: translateY(-2px);
+  background: var(--action-color); /* Yellow on hover */
 }
 
 /* Image right variant */
