@@ -1,4 +1,9 @@
 /* Pearson content-tile block - image and text side by side */
+.content-tile-wrapper {
+  max-width: unset !important;
+  padding: 0 !important;
+}
+
 .content-tile {
   background: var(--background-light);
   padding: var(--space-16) 0;
