@@ -1,7 +1,14 @@
 /* Pearson content-tile block - image and text side by side */
+main > .section.content-tile-container {
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 .content-tile-wrapper {
   max-width: unset !important;
   padding: 0 !important;
+  margin: 0 !important;
 }
 
 .content-tile {
@@ -10,7 +17,7 @@
   width: 100%;
 }
 
-.content-tile-container {
+.content-tile .content-tile-container {
   max-width: 1264px;
   margin: 0 auto;
   padding: 0 var(--space-l);
@@ -21,7 +28,7 @@
 }
 
 @media (width >= 900px) {
-  .content-tile-container {
+  .content-tile .content-tile-container {
     grid-template-columns: 1fr 1fr;
     gap: var(--space-20);
     padding: 0 32px;
