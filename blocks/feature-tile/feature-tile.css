@@ -118,23 +118,36 @@ main > .section.feature-tile-container {
   margin-bottom: 0;
 }
 
-/* CTA Button */
+/* CTA Button - Uses ::before pseudo-element for yellow pill background */
 .feature-tile-cta {
+  position: relative; /* Exact from Pearson */
   display: inline-block;
   padding: 6px 30px; /* Exact from Pearson */
-  background: transparent; /* Pearson uses transparent with border/underline */
+  background: transparent;
   color: var(--brand-01);
   text-decoration: none;
-  border-radius: 0; /* Pearson doesn't use pill shape */
   font-weight: 600; /* Exact from Pearson */
   font-size: 16px; /* Exact from Pearson */
-  transition: background 0.3s ease;
+  line-height: 24px; /* Exact from Pearson */
+  z-index: 1;
   margin-top: var(--space-4);
   align-self: flex-start;
 }
 
-.feature-tile-cta:hover {
-  background: var(--action-color); /* Yellow on hover */
+/* Yellow pill background using ::before pseudo-element */
+.feature-tile-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0; /* Shorthand for top: 0; left: 0; right: 0; bottom: 0; */
+  background-color: var(--action-color); /* rgb(255, 206, 0) */
+  border-radius: 40px; /* Exact from Pearson - creates pill shape */
+  z-index: -1;
+  display: block;
+  transition: 0.125s ease-in-out; /* Exact from Pearson */
+}
+
+.feature-tile-cta:hover::before {
+  background-color: #f2c200; /* Darker yellow on hover */
 }
 
 /* Image right variant */
