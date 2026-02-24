@@ -1,0 +1,155 @@
+/* Pearson feature-tile block - full-width 50/50 layout with purple background */
+
+/* Override EDS section defaults for full-width */
+main > .section.feature-tile-container {
+  max-width: unset !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.feature-tile-wrapper {
+  max-width: unset !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Main block styling */
+.feature-tile {
+  background: linear-gradient(135deg, rgb(169 166 214 / 90%) 0%, rgb(139 135 204 / 85%) 100%);
+  padding: var(--space-20) 0;
+  min-height: 45vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.feature-tile-container {
+  width: 100%;
+  max-width: 1264px;
+  margin: 0 auto;
+  padding: 0 var(--space-l);
+}
+
+@media (width >= 900px) {
+  .feature-tile-container {
+    padding: 0 32px;
+  }
+}
+
+/* Figure container - holds image and text */
+.feature-tile-figure {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
+@media (width >= 900px) {
+  .feature-tile-figure {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-16);
+  }
+}
+
+/* Image section */
+.feature-tile-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.feature-tile-image picture,
+.feature-tile-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Text content */
+.feature-tile-figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  padding: var(--space-8);
+}
+
+@media (width >= 900px) {
+  .feature-tile-figcaption {
+    padding: var(--space-12);
+  }
+}
+
+/* Eyebrow - small uppercase text */
+.feature-tile-eyebrow {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+/* Title */
+.feature-tile-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+/* Description text */
+.feature-tile-text {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+.feature-tile-text p {
+  margin: 0 0 var(--space-4) 0;
+}
+
+.feature-tile-text p:last-child {
+  margin-bottom: 0;
+}
+
+/* CTA Button - Yellow pill */
+.feature-tile-cta {
+  display: inline-block;
+  padding: 12px 32px;
+  background: var(--action-color);
+  color: var(--dark-color);
+  text-decoration: none;
+  border-radius: 999px;
+  font-weight: var(--font-weight-semibold);
+  font-size: 1rem;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: var(--space-4);
+  align-self: flex-start;
+}
+
+.feature-tile-cta:hover {
+  background: #f2c200;
+  transform: translateY(-2px);
+}
+
+/* Image right variant */
+.feature-tile.image-right .feature-tile-figure {
+  direction: rtl;
+}
+
+.feature-tile.image-right .feature-tile-figcaption {
+  direction: ltr;
+}
+
+/* Dark variant */
+.feature-tile.dark {
+  background: var(--background-brand);
+}
+
+.feature-tile.dark .feature-tile-eyebrow,
+.feature-tile.dark .feature-tile-title,
+.feature-tile.dark .feature-tile-text {
+  color: white;
+}
